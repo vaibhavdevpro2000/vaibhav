@@ -232,7 +232,7 @@
         if (!$(".parallax-img").length) return;
         const images = document.querySelectorAll(".parallax-img");
         new Ukiyo(images, {
-            scale: 1.5,
+            scale: 1.0,
             speed: 1.5,
             externalRAF: !1,
         });
