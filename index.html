@@ -1648,7 +1648,122 @@
       </div>
     </div>
     <!-- /side-menu-mobile  -->
+<!-- Floating Contact Buttons -->
+<div class="floating-contact">
+  <!-- WhatsApp -->
+  <a href="https://wa.me/91885369416" target="_blank" class="float-btn whatsapp" aria-label="WhatsApp">
+    <svg viewBox="0 0 32 32" width="24" height="24" fill="currentColor">
+      <path d="M16 3C8.82 3 3 8.82 3 16c0 2.47.69 4.79 1.89 6.77L3 29l6.43-1.84A12.93 12.93 0 0 0 16 29c7.18 0 13-5.82 13-13S23.18 3 16 3zm6.5 18.22c-.27.76-1.58 1.45-2.19 1.54-.56.08-1.27.12-2.06-.13-.48-.15-1.09-.35-1.88-.69-3.31-1.43-5.47-4.77-5.64-5-.17-.23-1.34-1.78-1.34-3.39s.84-2.4 1.14-2.73c.3-.34.66-.42.88-.42h.63c.2 0 .46-.08.72.54.27.64.91 2.2.99 2.36.08.15.13.34.03.54-.1.2-.15.33-.3.5-.15.17-.31.38-.44.51-.15.15-.31.31-.13.61.17.3.76 1.25 1.63 2.02 1.13 1 2.08 1.31 2.38 1.46.3.15.48.13.66-.08.18-.2.76-.89.96-1.19.2-.3.41-.25.69-.15.28.1 1.79.84 2.1.99.31.15.51.23.58.36.07.13.07.76-.2 1.52z"/>
+    </svg>
+  </a>
 
+  <!-- Phone -->
+  <a href="tel:+91885369416" class="float-btn phone" aria-label="Call">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+      <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.3 21 3 13.7 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.24.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+    </svg>
+  </a>
+</div>
+
+<style>
+:root{
+  --navy:#0A2540;
+  --blue:#C7DDEB;
+}
+
+.floating-contact{
+  position:fixed;
+  left:22px;
+  bottom:22px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  z-index:9999;
+}
+
+.float-btn{
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  text-decoration:none;
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  box-shadow:
+    0 12px 30px rgba(10,37,64,.25),
+    0 4px 10px rgba(0,0,0,.08);
+  transition:all .35s cubic-bezier(.22,1,.36,1);
+  animation:float 4s ease-in-out infinite;
+  position:relative;
+  overflow:hidden;
+}
+
+.float-btn::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    135deg,
+    rgba(255,255,255,.25),
+    rgba(255,255,255,0)
+  );
+}
+
+.whatsapp{
+  background:linear-gradient(135deg,#25D366,#128C7E);
+}
+
+.phone{
+  background:linear-gradient(135deg,var(--navy),#133B67);
+  animation-delay:.5s;
+}
+
+.float-btn:hover{
+  transform:translateY(-6px) scale(1.08);
+  box-shadow:
+    0 18px 40px rgba(10,37,64,.35),
+    0 0 22px rgba(199,221,235,.5);
+}
+
+.float-btn:active{
+  transform:scale(.95);
+}
+
+.float-btn::after{
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  border:2px solid rgba(255,255,255,.35);
+  animation:pulse 2.8s infinite;
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-8px);}
+}
+
+@keyframes pulse{
+  0%{transform:scale(1);opacity:.7;}
+  70%{transform:scale(1.45);opacity:0;}
+  100%{opacity:0;}
+}
+
+@media (max-width:768px){
+  .floating-contact{
+    left:16px;
+    bottom:16px;
+  }
+  .float-btn{
+    width:54px;
+    height:54px;
+  }
+}
+</style>
     <!-- Javascript -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.min.js"></script>
